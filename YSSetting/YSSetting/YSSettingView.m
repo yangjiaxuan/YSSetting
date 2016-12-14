@@ -18,24 +18,42 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
+        
         [self setUI];
+        [self setupData];
     }
     return self;
 }
 
+- (void)setupData{
+    
+    self.sectionHeight  = 10;
+    self.backColor      = [UIColor colorWithWhite:0.95 alpha:1];
+    self.separatorColor = [UIColor lightGrayColor];
+}
 - (void)setUI{
 
-    UIColor *backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
     _tableView = [[UITableView alloc]initWithFrame:self.bounds style:UITableViewStyleGrouped];
     _tableView.delegate   = self;
     _tableView.dataSource = self;
-    _tableView.sectionIndexColor  = backgroundColor;
-    _tableView.backgroundColor    = backgroundColor;
-    _tableView.sectionIndexBackgroundColor = backgroundColor;
-    _tableView.sectionIndexTrackingBackgroundColor = backgroundColor;
+    
     _tableView.tableFooterView = [[UIView alloc]init];
-
     [self addSubview:_tableView];
+}
+
+- (void)setBackColor:(UIColor *)backColor{
+    
+    _backColor = backColor;
+    _tableView.sectionIndexColor  = self.backColor;
+    _tableView.backgroundColor    = self.backColor;
+    _tableView.sectionIndexBackgroundColor         = self.backColor;
+    _tableView.sectionIndexTrackingBackgroundColor = self.backColor;
+}
+
+- (void)setSeparatorColor:(UIColor *)separatorColor{
+    
+    _separatorColor = separatorColor;
+    _tableView.separatorColor     = self.separatorColor;
 }
 
 - (void)setDataArray:(NSArray *)dataArray{
@@ -59,8 +77,14 @@
     [_tableView reloadData];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    SetCellModel *model   = _realDataArray[indexPath.section][indexPath.row];
+    return model.cellHeight;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 10;
+   
+    return self.sectionHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{

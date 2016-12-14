@@ -13,6 +13,7 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.showDetailImage = YES;
+        self.cellHeight      = 44;
     }
     return self;
 }

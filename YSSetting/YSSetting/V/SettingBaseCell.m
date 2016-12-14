@@ -32,12 +32,7 @@
 
 - (void)setUI{
 
-    CGFloat screenW    = [UIScreen mainScreen].bounds.size.width;
-    CGFloat detailIV_W = 6;
-    CGFloat detailIV_H = 12;
-    CGFloat detailIV_X = (screenW - detailIV_W) - 8;
-    CGFloat detailIV_Y = (self.contentView.frame.size.height - detailIV_H)/2.0;
-    _detailImageView = [[UIImageView alloc]initWithFrame:(CGRect){{detailIV_X, detailIV_Y},{detailIV_W, detailIV_H}}];
+    _detailImageView = [[UIImageView alloc]init];
     _detailImageView.image = [UIImage imageNamed:ArrowSrcName(@"cellDetail.png")] ?: [UIImage imageNamed:ArrowFrameworkSrcName(@"cellDetail.png")];
     [self.contentView addSubview:_detailImageView];
 }
@@ -46,10 +41,17 @@
     _model = model;
     if (model.showDetailImage) {
         _detailImageView.hidden = NO;
+        CGFloat screenW    = [UIScreen mainScreen].bounds.size.width;
+        CGFloat detailIV_W = 6;
+        CGFloat detailIV_H = 12;
+        CGFloat detailIV_X = (screenW - detailIV_W) - 8;
+        CGFloat detailIV_Y = (model.cellHeight - detailIV_H)/2;
+        _detailImageView.frame = (CGRect){{detailIV_X, detailIV_Y},{detailIV_W, detailIV_H}};
     }
     else{
         _detailImageView.hidden = YES;
     }
+    
 }
 
 @end

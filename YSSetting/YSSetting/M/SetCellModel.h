@@ -18,6 +18,9 @@ typedef void(^CellContentActon)(id userData, UITableViewCell *cell);
 @property (copy  , nonatomic) NSString *cellNibName;
 @property (copy  , nonatomic) NSString *cellIdentifier;
 
+// 默认 44
+@property (assign, nonatomic) CGFloat cellHeight;
+
 @property (copy  , nonatomic) NSString *title;
 @property (copy  , nonatomic) NSString *rightTitle;
 

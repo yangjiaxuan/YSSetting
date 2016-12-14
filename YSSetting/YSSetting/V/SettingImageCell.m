@@ -11,6 +11,7 @@
 @interface SettingImageCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView0;
 
 @end
 @implementation SettingImageCell
@@ -23,6 +24,7 @@
 - (void)setModel:(SetCellModel *)model{
     [super setModel:model];
     self.titleLabel.text = model.title;
+    self.imageView0.image = [UIImage imageNamed:model.rightImageName];
     
 }
 

@@ -28,8 +28,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSMutableArray *cellsection_1Arr = [NSMutableArray array];
+    NSMutableArray *cellsection_0Arr = [NSMutableArray array];
     SetCellModel *cellModel = [[SetCellModel alloc]init];
+    cellModel.title = @"头像";
+    cellModel.rightImageName  = @"1";
+    cellModel.cellHeight      = 120;
+    cellModel.cellNibName     = SetImageCell;
+    cellModel.cellIdentifier  = SetImageCell;
+    cellModel.cellContentAction = ^(id userData, UITableViewCell *cell){
+        
+        [UIAlertController defauleAlertChangeInfomationWithController:self title:@"温馨提示" message:@"cell高度120" canleAction:nil sureActionBlock:^(UIAlertController *alertContrller) {
+            
+        }];
+    };
+    [cellsection_0Arr addObject:cellModel];
+    
+    NSMutableArray *cellsection_1Arr = [NSMutableArray array];
+    cellModel = [[SetCellModel alloc]init];
     cellModel.title = @"消息推送";
     cellModel.rightTitle  = @"开启";
     cellModel.showDetailImage = NO;
@@ -81,6 +96,7 @@
     [cellsection_3Arr addObject:cellModel];
     
     NSMutableArray *cellDataArr = [NSMutableArray array];
+    [cellDataArr addObject:cellsection_0Arr];
     [cellDataArr addObject:cellsection_1Arr];
     [cellDataArr addObject:cellsection_2Arr];
     [cellDataArr addObject:cellsection_3Arr];
@@ -90,8 +106,11 @@
     
     YSSettingView *settingView = [[YSSettingView alloc]initWithFrame:self.view.bounds];
     settingView.dataArray = _dataArr;
-    
+  
     [self.view addSubview:settingView];
+    
+    settingView.separatorColor = [UIColor purpleColor];
+    settingView.backColor = [UIColor yellowColor];
 }
 
 
