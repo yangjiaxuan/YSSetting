@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SettingImageCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XAg-up-LJp">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="mId-Th-5ub"/>
+                            <constraint firstAttribute="width" secondItem="XAg-up-LJp" secondAttribute="height" id="uDR-QN-rAy"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I0M-hx-aSZ">
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="I0M-hx-aSZ" secondAttribute="height" multiplier="1:2" id="5ZF-Qk-1aU"/>
+                            <constraint firstAttribute="width" constant="8" id="yGP-Pe-hDO"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的二维码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHq-HI-68T">
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZHq-HI-68T" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2Fk-cE-XU6"/>
+                    <constraint firstItem="I0M-hx-aSZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4AQ-iH-Wu2"/>
+                    <constraint firstItem="ZHq-HI-68T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="IB1-Kt-CpC"/>
+                    <constraint firstItem="XAg-up-LJp" firstAttribute="centerY" secondItem="I0M-hx-aSZ" secondAttribute="centerY" id="Lz2-xl-FNF"/>
+                    <constraint firstItem="I0M-hx-aSZ" firstAttribute="width" secondItem="I0M-hx-aSZ" secondAttribute="height" multiplier="1:2" id="fj1-W0-gt2"/>
+                    <constraint firstAttribute="trailing" secondItem="I0M-hx-aSZ" secondAttribute="trailing" constant="8" id="kHe-wP-CfY"/>
+                    <constraint firstItem="XAg-up-LJp" firstAttribute="width" secondItem="XAg-up-LJp" secondAttribute="height" id="n3O-eA-Igv"/>
+                    <constraint firstItem="I0M-hx-aSZ" firstAttribute="leading" secondItem="XAg-up-LJp" secondAttribute="trailing" constant="8" id="wxz-Qc-trf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="titleLabel" destination="ZHq-HI-68T" id="OIb-ok-P7m"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
